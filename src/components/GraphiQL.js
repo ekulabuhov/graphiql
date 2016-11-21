@@ -33,6 +33,8 @@ import {
   introspectionQuerySansSubscriptions,
 } from '../utility/introspectionQueries';
 
+import joeQLCompile from './JoeQL';
+
 /**
  * GraphiQL
  *
@@ -497,7 +499,7 @@ export class GraphiQL extends React.Component {
     }
 
     const fetch = fetcher({
-      query,
+      joeQL: joeQLCompile(query),
       variables: jsonVariables,
       operationName
     });
